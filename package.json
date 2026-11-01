@@ -1,0 +1,13 @@
+{
+  "name": "aura-pro",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "start": "NODE_ENV=production node server/server.js",
+    "dev": "concurrently -n api,web -c green,cyan \"npm:server\" \"npm:client\""
+  },
+  "devDependencies": { "concurrently": "^9.0.0" }
+}
